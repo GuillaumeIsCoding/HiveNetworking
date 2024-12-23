@@ -1,0 +1,14 @@
+# Build directories
+cmake-build-debug/
+cmake-build-release/
+cmake-build-debug-coverage/
+cmake-build-debug-event-trace/
+build/
+
+# Vscode directories
+.vscode/
+.vs/
+out/
+
+
+.idea/
