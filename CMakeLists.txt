@@ -6,6 +6,6 @@ add_subdirectory(HiveNetworking)
 
 add_subdirectory(Sandbox/Server)
 
-add_subdirectory(Sandbox/Server)
+add_subdirectory(Sandbox/Client)
 
 add_subdirectory(Test)

@@ -6,9 +6,6 @@
     "name" : "abseil",
     "version>=" : "20240722.0"
   }, {
-    "name" : "openssl",
-    "version>=" : "3.4.0"
-  }, {
     "name" : "protobuf",
     "version>=" : "5.26.1"
   }, {
@@ -23,5 +20,8 @@
   }, {
     "name" : "vcpkg-cmake",
     "version>=" : "2024-04-23"
+  }, {
+    "name" : "openssl",
+    "version>=" : "3.4.0"
   } ]
 }
