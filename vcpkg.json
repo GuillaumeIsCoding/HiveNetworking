@@ -1,0 +1,27 @@
+{
+  "name" : "hivenetworking",
+  "version-string" : "1.0.0",
+  "builtin-baseline" : "47344ab6d3b4667a4d60c9f796bcf4b2b9464f20",
+  "dependencies" : [ {
+    "name" : "abseil",
+    "version>=" : "20240722.0"
+  }, {
+    "name" : "openssl",
+    "version>=" : "3.4.0"
+  }, {
+    "name" : "protobuf",
+    "version>=" : "5.26.1"
+  }, {
+    "name" : "utf8-range",
+    "version>=" : "5.26.1"
+  }, {
+    "name" : "vcpkg-cmake-config",
+    "version>=" : "2024-05-23"
+  }, {
+    "name" : "vcpkg-cmake-get-vars",
+    "version>=" : "2024-09-22"
+  }, {
+    "name" : "vcpkg-cmake",
+    "version>=" : "2024-04-23"
+  } ]
+}
