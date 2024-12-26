@@ -4,6 +4,7 @@
 #pragma once
 
 #include <cstdint>
+#include <cstring>
 
 namespace hive
 {
@@ -12,7 +13,9 @@ namespace hive
     public:
         Buffer();
         Buffer(const void* data, size_t size);
-        Buffer(const Buffer& buffer, size_t size);
+        Buffer(const Buffer& buffer);
+
+        ~Buffer();
 
         static Buffer copy(const void* data, size_t size);
         static Buffer copy(const Buffer& buffer);
@@ -22,8 +25,7 @@ namespace hive
         void zeroInitialize();
 
         template<typename T>
-        [[nodiscard]]
-        T& read(size_t offset = 0) const
+        T& read(size_t offset = 0)
         {
             return *(T*)((uint32_t*)m_data + offset);
         }
@@ -33,6 +35,13 @@ namespace hive
         const T& read(size_t offset = 0) const
         {
             return *(T*)((uint32_t*)m_data + offset);
+        }
+
+        template<typename T>
+        [[nodiscard]]
+        T& readByte(size_t offset = 0) const
+        {
+            return *(T*)((uint8_t*)m_data + offset);
         }
 
         [[nodiscard]]

@@ -15,31 +15,37 @@ namespace hive
     }
 
     Buffer::Buffer(const void *data, size_t size)
-        : m_data((void*)data), m_size(size)
+        : m_data(nullptr), m_size(0)
     {
+        /// I want to create a new buffer
+        /// So if a play with it, it won't affect the data
+        allocate(size);
 
+        memcpy(m_data, data, size);
     }
 
-    Buffer::Buffer(const Buffer &buffer, size_t size)
-        : m_data(buffer.m_data), m_size(size)
+    Buffer::Buffer(const Buffer &buffer)
+        : m_data(nullptr), m_size(0)
     {
+        /// Same issue but with a Buffer object
+        allocate(buffer.m_size);
 
+        memcpy(m_data, buffer.m_data, buffer.m_size);
+    }
+
+    Buffer::~Buffer()
+    {
+        release();
     }
 
     Buffer Buffer::copy(const void *data, size_t size)
     {
-        Buffer b;
-        b.allocate(size);
-        memcpy(b.m_data, data, size);
-        return b;
+        return Buffer(data, size);
     }
 
     Buffer Buffer::copy(const Buffer &buffer)
     {
-        Buffer b;
-        b.allocate(buffer.m_size);
-        memcpy(b.m_data, buffer.m_data, buffer.m_size);
-        return b;
+        return Buffer(buffer);
     }
 
     void Buffer::allocate(size_t size)
@@ -74,9 +80,8 @@ namespace hive
 
     void Buffer::write(const void *data, size_t size, size_t offset)
     {
-        memcpy((uint8_t*)m_data + offset, m_data, size);
+        memcpy((uint8_t*)m_data + offset, data, size);
     }
-
 
     Buffer::operator bool() const
     {
